@@ -48,7 +48,7 @@ class LRUCache {
         int capacity_;
 };
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     LRUCache lrc(10);
     lrc.set(1, 2);
     lrc.set(2, 3);
