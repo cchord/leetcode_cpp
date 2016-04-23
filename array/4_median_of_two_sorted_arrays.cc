@@ -39,9 +39,9 @@ class Solution {
             int pivot1 = min(m, k / 2);
             int pivot2 = k - pivot1;
 
-            if (nums1[pivot1 - 1] == nums2[pivot2 - 1])
-                return nums1[pivot1];
-            else if (nums1[pivot1 - 1] < nums2[pivot2 - 1])
+            if (nums1[s1 + pivot1 - 1] == nums2[s2 + pivot2 - 1])
+                return nums1[pivot1 - 1];
+            else if (nums1[s1 + pivot1 - 1] < nums2[s2 + pivot2 - 1])
                 return findKthElement(nums1, s1 + pivot1, e1, nums2, s2, s2 + pivot2, k - pivot1);
             else
                 return findKthElement(nums1, s1, s1 + pivot1, nums2, s2 + pivot2, e2, k - pivot2);
@@ -49,7 +49,9 @@ class Solution {
 };
 
 int main() {
-    vector<int> n1{1, 3, 4, 5, 10};
-    vector<int> n2{6, 7, 8, 9};
+    //vector<int> n1{1, 3, 4, 5, 10};
+    //vector<int> n2{6, 7, 8, 9};
+    vector<int> n1{1, 2};
+    vector<int> n2{1, 2};
     cout << Solution().findMedianSortedArrays(n1, n2) << endl;
 }
