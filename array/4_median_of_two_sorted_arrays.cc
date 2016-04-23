@@ -13,41 +13,41 @@
 using namespace std;
 
 class Solution {
-    public:
-        double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
-            int m = nums1.size(), n = nums2.size(), k = (m + n) / 2;
-            int m1 = findKthElement(nums1, 0, m, nums2, 0, n, k + 1);
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+        int m = nums1.size(), n = nums2.size(), k = (m + n) / 2;
+        int m1 = findKthElement(nums1, 0, m, nums2, 0, n, k + 1);
 
-            if ((m + n) % 2 == 0) {
-                int m2 = findKthElement(nums1, 0, m, nums2, 0, n, k);
-                return (m1 + m2) / 2.0;
-            }
-
-            return m1;
+        if ((m + n) % 2 == 0) {
+            int m2 = findKthElement(nums1, 0, m, nums2, 0, n, k);
+            return (m1 + m2) / 2.0;
         }
 
-        int findKthElement(vector<int> &nums1, int s1, int e1, vector<int> &nums2, int s2, int e2, int k) {
-            int m = e1 - s1, n = e2 - s2;
+        return m1;
+    }
 
-            if (m > n)
-                return findKthElement(nums2, s2, e2, nums1, s1, e1, k); // let nums1 be the shorter one
+    int findKthElement(vector<int> &nums1, int s1, int e1, vector<int> &nums2, int s2, int e2, int k) {
+        int m = e1 - s1, n = e2 - s2;
 
-            if (m == 0)
-                return nums2[s2 + k - 1];
+        if (m > n)
+            return findKthElement(nums2, s2, e2, nums1, s1, e1, k); // let nums1 be the shorter one
 
-            if (k == 1)
-                return min(nums1[s1], nums2[s2]);
+        if (m == 0)
+            return nums2[s2 + k - 1];
 
-            int pivot1 = min(m, k / 2);
-            int pivot2 = k - pivot1;
+        if (k == 1)
+            return min(nums1[s1], nums2[s2]);
 
-            if (nums1[s1 + pivot1 - 1] == nums2[s2 + pivot2 - 1])
-                return nums1[pivot1 - 1];
-            else if (nums1[s1 + pivot1 - 1] < nums2[s2 + pivot2 - 1])
-                return findKthElement(nums1, s1 + pivot1, e1, nums2, s2, s2 + pivot2, k - pivot1);
-            else
-                return findKthElement(nums1, s1, s1 + pivot1, nums2, s2 + pivot2, e2, k - pivot2);
-        }
+        int pivot1 = min(m, k / 2);
+        int pivot2 = k - pivot1;
+
+        if (nums1[s1 + pivot1 - 1] == nums2[s2 + pivot2 - 1])
+            return nums1[pivot1 - 1];
+        else if (nums1[s1 + pivot1 - 1] < nums2[s2 + pivot2 - 1])
+            return findKthElement(nums1, s1 + pivot1, e1, nums2, s2, s2 + pivot2, k - pivot1);
+        else
+            return findKthElement(nums1, s1, s1 + pivot1, nums2, s2 + pivot2, e2, k - pivot2);
+    }
 };
 
 int main() {

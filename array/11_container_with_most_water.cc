@@ -15,26 +15,26 @@
 using namespace std;
 
 class Solution {
-    public:
-        int maxArea(vector<int> &height) {
-            int n = height.size();
+public:
+    int maxArea(vector<int> &height) {
+        int n = height.size();
 
-            if (n == 0)
-                return 0;
+        if (n == 0)
+            return 0;
 
-            int maximum = 0, l = 0, r = n - 1;
+        int maximum = 0, l = 0, r = n - 1;
 
-            while (l < r) {
-                maximum = max(maximum, min(height[l], height[r]) * (r - l));
+        while (l < r) {
+            maximum = max(maximum, min(height[l], height[r]) * (r - l));
 
-                if (height[l] < height[r])
-                    l++;
-                else
-                    r--;
-            }
-
-            return maximum;
+            if (height[l] < height[r])
+                l++;
+            else
+                r--;
         }
+
+        return maximum;
+    }
 };
 
 int main() {

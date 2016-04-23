@@ -15,42 +15,42 @@
 using namespace std;
 
 class Solution {
-    public:
-        // two pointers
-        vector<vector<int>> threeSum(vector<int> &nums) {
-            vector<vector<int>> res;
-            int n = nums.size();
+public:
+    // two pointers
+    vector<vector<int>> threeSum(vector<int> &nums) {
+        vector<vector<int>> res;
+        int n = nums.size();
 
-            if (n == 0)
-                return res;
-
-            sort(nums.begin(), nums.end());
-
-            for (int i = 0; i < n - 2; i++) {
-                if (i > 0 && nums[i] == nums[i - 1])
-                    continue; // avoid duplicates
-
-                for (int j = i + 1, k = n - 1; j < k;) {
-                    int sum = nums[i] + nums[j] + nums[k];
-
-                    if (sum == 0) {
-                        // make sure sum is 0, then skip the duplicates...
-                        res.push_back(vector<int>({nums[i], nums[j], nums[k]}));
-
-                        while (j < k && nums[j] == nums[j + 1]) j++; // skip same results
-
-                        while (j < k && nums[k] == nums[k - 1]) k--; // skip same results
-
-                        j++, k--;
-                    } else if (sum < 0) // sum is too small
-                        j++;
-                    else
-                        k--;
-                }
-            }
-
+        if (n == 0)
             return res;
+
+        sort(nums.begin(), nums.end());
+
+        for (int i = 0; i < n - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue; // avoid duplicates
+
+            for (int j = i + 1, k = n - 1; j < k;) {
+                int sum = nums[i] + nums[j] + nums[k];
+
+                if (sum == 0) {
+                    // make sure sum is 0, then skip the duplicates...
+                    res.push_back(vector<int>({nums[i], nums[j], nums[k]}));
+
+                    while (j < k && nums[j] == nums[j + 1]) j++; // skip same results
+
+                    while (j < k && nums[k] == nums[k - 1]) k--; // skip same results
+
+                    j++, k--;
+                } else if (sum < 0) // sum is too small
+                    j++;
+                else
+                    k--;
+            }
         }
+
+        return res;
+    }
 };
 
 int main() {

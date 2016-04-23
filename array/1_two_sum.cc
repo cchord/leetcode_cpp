@@ -17,21 +17,21 @@
 using namespace std;
 
 class Solution {
-    public:
-        vector<int> twoSum(vector<int> &nums, int target) {
-            unordered_map<int, int> map;
+public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        unordered_map<int, int> map;
 
-            for (int i = 0; i < nums.size(); ++i) {
-                if (map.find(target - nums[i]) != map.end()) {
-                    vector<int> res{i, map[target - nums[i]]};
-                    sort(res.begin(), res.end());
-                    return res;
-                } else
-                    map.emplace(nums[i], i);
-            }
-
-            return vector<int> { -1, -1};
+        for (int i = 0; i < nums.size(); ++i) {
+            if (map.find(target - nums[i]) != map.end()) {
+                vector<int> res{i, map[target - nums[i]]};
+                sort(res.begin(), res.end());
+                return res;
+            } else
+                map.emplace(nums[i], i);
         }
+
+        return vector<int> { -1, -1};
+    }
 };
 
 int main() {

@@ -28,31 +28,31 @@
 using namespace std;
 
 class Solution {
-    public:
-        int findDuplicate(vector<int> &nums) {
-            int slow = 0, fast = 0;
+public:
+    int findDuplicate(vector<int> &nums) {
+        int slow = 0, fast = 0;
 
-            while (true) {
-                slow = nums[slow];
-                fast = nums[nums[fast]];
+        while (true) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
 
-                if (slow == fast)
-                    break; // circle detected
-            }
-
-            // find the entry point
-            int entryPoint = 0;
-
-            while (true) {
-                slow = nums[slow];
-                entryPoint = nums[entryPoint];
-
-                if (slow == entryPoint)
-                    break;
-            }
-
-            return entryPoint;
+            if (slow == fast)
+                break; // circle detected
         }
+
+        // find the entry point
+        int entryPoint = 0;
+
+        while (true) {
+            slow = nums[slow];
+            entryPoint = nums[entryPoint];
+
+            if (slow == entryPoint)
+                break;
+        }
+
+        return entryPoint;
+    }
 };
 
 int main() {

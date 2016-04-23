@@ -13,24 +13,24 @@
 using namespace std;
 
 class Solution {
-    public:
-        int trap(vector<int> &height) {
-            int n = height.size();
-            int bar = 0, base = 0, l = 0, r = n - 1, total = 0;
+public:
+    int trap(vector<int> &height) {
+        int n = height.size();
+        int bar = 0, base = 0, l = 0, r = n - 1, total = 0;
 
-            while (l < r) {
-                bar  = max(bar, max(height[l], height[r]));
-                base = max(base, min(height[l], height[r]));
-                total += base - min(height[l], height[r]);
+        while (l < r) {
+            bar  = max(bar, max(height[l], height[r]));
+            base = max(base, min(height[l], height[r]));
+            total += base - min(height[l], height[r]);
 
-                if (height[l] < height[r])
-                    l++;
-                else
-                    r--;
-            }
-
-            return total;
+            if (height[l] < height[r])
+                l++;
+            else
+                r--;
         }
+
+        return total;
+    }
 };
 
 int main() {
