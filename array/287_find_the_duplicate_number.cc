@@ -1,7 +1,8 @@
 //
 // Created by Neptune on 4/23/16.
 //
-/* Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least
+/*
+ * Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least
  * one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
  * Note:
  *      You must not modify the array (assume the array is read only).
@@ -11,7 +12,7 @@
  */
 
 /*
- * For example: [1,2,4,2,2] is a list has circle:
+ * For example: [1,2,4,2,2] is a list which has circle:
  *      a. head is 1 - the first element;
  *      b. 1 -> 2 -> 4
  *              ^    |
