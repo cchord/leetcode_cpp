@@ -13,7 +13,7 @@
 using namespace std;
 
 class LRUCache {
-public:
+  public:
     LRUCache(int capacity) : capacity_(capacity) { }
 
     int get(int key) {
@@ -44,7 +44,7 @@ public:
         }
     }
 
-private:
+  private:
     unordered_map<int, list<pair<int, int>>::iterator> map_;
     list<pair<int, int>> list_;
     int capacity_;

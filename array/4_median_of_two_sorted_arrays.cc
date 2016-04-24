@@ -13,7 +13,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
         int m = nums1.size(), n = nums2.size(), k = (m + n) / 2;
         int m1 = findKthElement(nums1, 0, m, nums2, 0, n, k + 1);

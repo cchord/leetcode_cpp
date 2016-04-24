@@ -15,7 +15,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     // two pointers
     vector<vector<int>> threeSum(vector<int> &nums) {
         vector<vector<int>> res;

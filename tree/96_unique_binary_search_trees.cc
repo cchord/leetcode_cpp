@@ -13,7 +13,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int numTrees(int n) {
         if (n == 0)
             return 0;

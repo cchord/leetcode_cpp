@@ -13,7 +13,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int trap(vector<int> &height) {
         int n = height.size();
         int bar = 0, base = 0, l = 0, r = n - 1, total = 0;

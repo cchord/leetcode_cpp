@@ -15,7 +15,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int maxArea(vector<int> &height) {
         int n = height.size();
 

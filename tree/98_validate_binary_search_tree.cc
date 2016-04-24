@@ -22,7 +22,7 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+  public:
     bool isValidBST(TreeNode *root) {
         return validate(root, numeric_limits<long>::min(), numeric_limits<long>::max());
     }

@@ -18,7 +18,7 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+  public:
     bool isSymmetric(TreeNode *root) {
         if (!root)
             return true;
