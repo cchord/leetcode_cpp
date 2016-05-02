@@ -11,9 +11,9 @@
 using namespace std;
 
 struct ListNode {
-    int val;
+    int label;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) { }
+    ListNode(int x) : label(x), next(nullptr) { }
 };
 
 class Solution {
@@ -38,7 +38,7 @@ class Solution {
 
         if (!l2) return l1;
 
-        if (l1->val > l2->val) {
+        if (l1->label > l2->label) {
             l2->next = merge2Lists(l1, l2->next);
             return l2;
         } else {
@@ -59,7 +59,7 @@ int main() {
     l = Solution().sortList(l);
 
     for (auto it = l; it != nullptr; it = it->next)
-        cout << it->val << " ";
+        cout << it->label << " ";
 
     cout << endl;
     return 0;
