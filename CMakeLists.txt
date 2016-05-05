@@ -4,7 +4,7 @@ project(leetcode_cpp)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(ROOT ${PROJECT_SOURCE_DIR})
 
-set(subdirs array others tree hash_table sort two_pointers dynamic_programming)
+set(subdirs array others tree hash_table sort two_pointers dynamic_programming graph linked_list)
 
 foreach(dir ${subdirs})
     add_subdirectory(${dir})

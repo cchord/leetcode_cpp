@@ -9,8 +9,6 @@
  *      Can you solve it without using extra space?
  */
 
-using namespace std;
-
 struct ListNode {
     int label;
     ListNode *next;
